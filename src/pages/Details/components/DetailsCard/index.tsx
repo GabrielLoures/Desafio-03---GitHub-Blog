@@ -1,8 +1,13 @@
+import { DetailsProps } from "../..";
 import { DetailsCardContainer, DetailsBaseInfos, DetailsInfos, DetailsInfosFooter, DetailsInfosHeader, DetailsInfosTitle } from "./styles";
 
 import { ArrowSquareOut, GithubLogo, CalendarBlank, ChatCircle, CaretLeft } from "phosphor-react";
 
-export function DetailsCard() {
+interface DetailsCardProps {
+  details: DetailsProps
+}
+
+export function DetailsCard({ details }: DetailsCardProps) {
   return (
     <DetailsCardContainer>
         
@@ -19,21 +24,21 @@ export function DetailsCard() {
           </DetailsInfosHeader>  
 
           <DetailsInfosTitle>
-            <h1>JavaScript data types and data structures</h1>  
+            <h1>{details.title}</h1>  
           </DetailsInfosTitle>  
 
           <DetailsInfosFooter>
             <DetailsBaseInfos>
               <GithubLogo size={18} />
-              <span>GabrielLoures</span>
+              <span>{details.userName}</span>
             </DetailsBaseInfos>
             <DetailsBaseInfos>
               <CalendarBlank size={18} />
-              <span>Há 1 dia</span>
+              <span>{details.createdAt}</span>
             </DetailsBaseInfos>
             <DetailsBaseInfos>
               <ChatCircle size={18} />
-              <span>33 comentários</span>
+              <span>{details.comments} comentários</span>
             </DetailsBaseInfos>
           </DetailsInfosFooter>
         </DetailsInfos>
